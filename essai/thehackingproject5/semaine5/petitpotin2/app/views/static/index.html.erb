@@ -1,0 +1,25 @@
+<br>
+<h1>Salut, quel est ton nom étranger?</h1>
+<br>
+<form action="/" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="text" name="first_name">
+	<input type="submit" name="Envoyer">
+</form>
+<br>
+<br>
+
+<h1>Liste des potins :</h1>
+ <% Gossip.all.each do |gossip| %>
+      <div class="row">
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-body">
+	        <h5 class="card-title"><%=Gossip.find(gossip.id).author%></h5>
+	        <p class="card-text"><%=Gossip.find(gossip.id).content%></p>
+	        <a href="gossip/<%= gossip.id %>/" class="btn btn-light">Fiche du Potin</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      <% end %>

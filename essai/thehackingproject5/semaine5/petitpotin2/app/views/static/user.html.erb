@@ -1,0 +1,9 @@
+<br>
+<h1>Salut <%= @name %>, compose ton potin:</h1>
+<br> 
+
+<form action="/<%= @name %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="text" name="content">
+	<input type="submit" name="Envoyer">
+</form>
